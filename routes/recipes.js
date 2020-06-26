@@ -79,7 +79,7 @@ router.put('/:id', auth, async (req, res) => {
             { $set: recipeFields },
             { new: true }
         );
-        res.json(contact);
+        res.json(recipe);
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Server Error');
