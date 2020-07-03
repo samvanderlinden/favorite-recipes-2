@@ -13,15 +13,15 @@ const Navbar = () => {
                     <a href="#!" className="brand-logo">Recipe Logger</a>
                     <a href="#!" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                     <ul className="right hide-on-med-and-down">
-                        <li><a href="#!">Register</a></li>
-                        <li><a href="#!">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
                 </div>
             </nav>
 
             <ul className="sidenav" id="slide-out">
-                <li><a href="#!">Register</a></li>
-                <li><a href="#!">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
             </ul>
         </>
     )

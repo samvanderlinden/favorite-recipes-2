@@ -10,7 +10,7 @@ connectDB();
 //Init middleware
 app.use(express.json({ extended: false }));
 
-// //Define routes
+//Define routes
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/recipes', require('./routes/recipes'));
