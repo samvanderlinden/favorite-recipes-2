@@ -21,8 +21,11 @@ const Recipes = () => {
 
     return (
         <Fragment>
-            
-
+            {recipes !== null && !loading ? (
+                recipes.map(recipe => (
+                    <li key={recipe._id}>{recipe.name} -- {recipe.details} </li>
+                ))
+            ) : <Spinner />}
         </Fragment>
     )
 }
