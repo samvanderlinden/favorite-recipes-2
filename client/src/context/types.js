@@ -15,3 +15,5 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECIPE_ERROR = 'RECIPE_ERROR';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';
+export const SET_CURRENT = 'SET_CURRENT';

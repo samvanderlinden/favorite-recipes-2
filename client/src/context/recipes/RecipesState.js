@@ -42,52 +42,52 @@ const RecipesState = props => {
         }
     }
 
-    // //Clear contacts
-    // const clearContacts = () => {
-    //     dispatch({ type: CLEAR_CONTACTS });
+    // //Clear recipes
+    // const clearRecipes = () => {
+    //     dispatch({ type: CLEAR_RECIPES });
     // }
 
-    // //Add contact
-    // const addContact = async contact => {
-    //     const config = {
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }
+    //Add recipe
+    const addRecipe = async recipe => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
 
+        try {
+            const res = await axios.post('/api/recipes', recipe, config) //don't need to pass token in here because it's set globally in setAuthToken.js as long as token is in localStorage
+
+            dispatch({
+                type: ADD_RECIPE,
+                payload: res.data
+            });
+        } catch (error) {
+            dispatch({
+                type: RECIPE_ERROR,
+                payload: error.response.message
+            })
+        }
+    }
+
+    // //Delete recipe
+    // const deleteRecipe = async id => {
     //     try {
-    //         const res = await axios.post('/api/contacts', contact, config) //don't need to pass token in here because it's set globally in setAuthToken.js as long as token is in localStorage
-
+    //         await axios.delete(`/api/recipes/${id}`);
     //         dispatch({
-    //             type: ADD_CONTACT,
-    //             payload: res.data
-    //         });
-    //     } catch (error) {
-    //         dispatch({
-    //             type: CONTACT_ERROR,
-    //             payload: error.response.message
-    //         })
-    //     }
-    // }
-
-    // //Delete contact
-    // const deleteContact = async id => {
-    //     try {
-    //         await axios.delete(`/api/contacts/${id}`);
-    //         dispatch({
-    //             type: DELETE_CONTACT,
+    //             type: DELETE_RECIPE,
     //             payload: id
     //         });
     //     } catch (error) {
     //         dispatch({
-    //             type: CONTACT_ERROR,
+    //             type: RECIPE_ERROR,
     //             payload: error.response.message
     //         })
     //     }
     // }
 
-    // //Update contact
-    // const updateContact = async contact => {
+    //Update recipe
+    // const updateRecipe = async recipe => {
     //     const config = {
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -95,32 +95,32 @@ const RecipesState = props => {
     //     }
 
     //     try {
-    //         const res = await axios.put(`/api/contacts/${contact._id}`, contact, config);
+    //         const res = await axios.put(`/api/recipes/${recipe._id}`, recipe, config);
     //         dispatch({ 
-    //             type: UPDATE_CONTACT, 
+    //             type: UPDATE_RECIPE, 
     //             payload: res.data
     //         });
     //     } catch (error) {
     //         dispatch({
-    //             type: CONTACT_ERROR,
+    //             type: RECIPE_ERROR,
     //             payload: error.response.message
     //         })
     //     }
     // }
 
-    // //Set current contact
-    // const setCurrent = (contact) => {
-    //     dispatch({ type: SET_CURRENT, payload: contact })
-    // }
+    //Set current contact
+    const setCurrent = (recipe) => {
+        dispatch({ type: SET_CURRENT, payload: recipe })
+    }
 
-    // //Clear current contact
-    // const clearCurrent = () => {
-    //     dispatch({ type: CLEAR_CURRENT })
-    // }
+    //Clear current contact
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT })
+    }
 
-    // //Filter contacts
-    // const filterContacts = (text) => {
-    //     dispatch({ type: FILTER_CONTACTS, payload: text })
+    // //Filter recipes
+    // const filterRecipes = (text) => {
+    //     dispatch({ type: FILTER_RECIPES, payload: text })
     // }
 
     // //Clear filter
@@ -132,18 +132,18 @@ const RecipesState = props => {
         <RecipesContext.Provider
             value={{
                 recipes: state.recipes, //'state' comes from useReducer
-                // current: state.current,
-                // error: state.error,
-                // addContact: addContact,
-                // deleteContact: deleteContact,
-                // clearCurrent: clearCurrent,
-                // setCurrent: setCurrent,
-                // updateContact: updateContact,
+                current: state.current,
+                error: state.error,
+                addRecipe: addRecipe,
+                // deleteRecipe: deleteRecipe,
+                clearCurrent: clearCurrent,
+                setCurrent: setCurrent,
+                // updateRecipe: updateRecipe,
                 // filtered: state.filtered,
                 // clearFilter: clearFilter,
-                // filterContacts: filterContacts,
+                // filterRecipes: filterRecipes,
                 getRecipes: getRecipes
-                // clearContacts: clearContacts
+                // clearRecipes: clearRecipes
             }}>
             {props.children}
         </RecipesContext.Provider>
