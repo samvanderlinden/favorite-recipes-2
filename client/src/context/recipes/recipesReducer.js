@@ -19,6 +19,17 @@ export default (state, action) => {
                 recipes: action.payload,
                 loading: false
             };
+        case ADD_RECIPE:
+            return {
+                ...state,
+                recipes: [action.payload, ...state.recipes],
+                loading: false
+            };
+        case SET_CURRENT:
+            return {
+                ...state,
+                current: action.payload
+            };
         case RECIPE_ERROR:
             return {
                 ...state,

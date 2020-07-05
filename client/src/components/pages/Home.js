@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import Recipes from '../recipes/Recipes';
-// import ContactForm from '../contacts/ContactForm';
+import RecipeForm from '../recipes/RecipeForm';
 // import ContactFilter from '../contacts/ContactFilter';
 import AuthContext from '../../context/auth/authContext';
 
@@ -13,9 +13,9 @@ const Home = () => {
     }, []);
     return (
         <div className="grid-2">
-            {/* <div>
-                <ContactForm />
-            </div> */}
+            <div>
+                <RecipeForm />
+            </div>
             <div>
                 {/* <ContactFilter /> */}
                 <Recipes />
