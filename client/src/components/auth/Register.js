@@ -48,9 +48,9 @@ const Register = (props) => {
 
     return (
         <div className="form-container">
-            <h1>
-                Account Register
-            </h1>
+            <h2>
+                Register
+            </h2>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>

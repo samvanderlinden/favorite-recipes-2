@@ -23,7 +23,7 @@ const Navbar = () => {
                     <a href="#!" className="brand-logo">Recipe Logger</a>
                     <a href="#!" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                     <ul className="right hide-on-med-and-down">
-                        {isAuthenticated && user && <li><strong>Welcome {user.name}</strong></li>}
+                        {isAuthenticated && user && <li><strong>Welcome, {user.name.toUpperCase()}!</strong></li>}
                         <li><a href="/register">Register</a></li>
                         {isAuthenticated ? (
                             <li><a href="/login" onClick={onLogout}>Logout</a></li>

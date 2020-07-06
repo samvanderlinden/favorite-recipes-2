@@ -6,7 +6,7 @@ const Login = (props) => {
     const alertContext = useContext(AlertContext);
     const authContext = useContext(AuthContext);
 
-    const [ user, setUser ] = useState({
+    const [user, setUser] = useState({
         email: '',
         password: '',
     });
@@ -18,10 +18,10 @@ const Login = (props) => {
     const { login, error, clearErrors, isAuthenticated } = authContext;
 
     useEffect(() => {
-        if(isAuthenticated) {
+        if (isAuthenticated) {
             props.history.push('/')// redirect to the home page
         }
-        if(error === 'Invalid credentials'){
+        if (error === 'Invalid credentials') {
             setAlert(error, 'danger');
             clearErrors();
         }
@@ -30,12 +30,12 @@ const Login = (props) => {
     }, [error, isAuthenticated, props.history]);
 
     const onChange = e => {
-        setUser({...user, [e.target.name]: e.target.value}); //using spread syntax to keep state of user for each onChange invocation
+        setUser({ ...user, [e.target.name]: e.target.value }); //using spread syntax to keep state of user for each onChange invocation
     }
 
     const onSubmit = e => {
         e.preventDefault();
-        if(email === '' || password === '') {
+        if (email === '' || password === '') {
             setAlert('Please fill in all fields', 'danger')
         } else {
             login({
@@ -43,25 +43,33 @@ const Login = (props) => {
                 password
             })
         }
-        
+
     }
 
     return (
         <div className="form-container">
-            <h1>
-                Account Login
-            </h1>
-            <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="email" name="email" value={email} onChange={onChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" value={password} onChange={onChange}/>
-                </div>
-                <input type="submit" value="Login" className="btn btn-primary btn-block"/>
-            </form>
+            <h2>
+                Login
+            </h2>
+            <div className="row">
+                <form onSubmit={onSubmit} className="col s12">
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix">person</i>
+                            <input id="email" type="email" name="email" value={email} onChange={onChange} />
+                            <label htmlFor="email">Email Address</label>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix">lock</i>
+                            <input id="password" type="password" name="password" value={password} onChange={onChange} />
+                            <label htmlFor="password">Password</label>
+                        </div>
+                    </div>
+                    <input type="submit" value="Login" className="btn btn-primary btn-block" />
+                </form>
+            </div>
         </div>
     )
 }

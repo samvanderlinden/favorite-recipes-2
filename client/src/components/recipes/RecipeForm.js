@@ -30,9 +30,9 @@ const RecipeForm = () => {
 
     return (
         <div id="add-recipe-modal" className="modal">
-            <div className="modal-content">
+            <div className="modal-content input-field">
                     <input type="text" placeholder="Recipe Name" name="name" value={name} onChange={onChange} />
-                    <textarea placeholder="Details here" name="details" value={details} rows="10" cols="10" onChange={onChange} />
+                    <textarea placeholder="Recipe Details" className="materialize-textarea" name="details" value={details} onChange={onChange}/>
             </div>
             <div className="modal-footer">
                 <a href="#!" onClick={onSubmit} className="modal-close waves-effect waves-light btn blue">Add Recipe</a>
