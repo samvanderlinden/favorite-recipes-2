@@ -29,13 +29,15 @@ const RecipeForm = () => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input type="text" placeholder="Recipe Name" name="name" value={name} onChange={onChange} />
-            <textarea placeholder="Details here" name="details" value={details} rows="10" cols="10" onChange={onChange} />
-            <div>
-                <input type="submit" value="Add Contact" />
+        <div id="add-recipe-modal" className="modal">
+            <div className="modal-content">
+                    <input type="text" placeholder="Recipe Name" name="name" value={name} onChange={onChange} />
+                    <textarea placeholder="Details here" name="details" value={details} rows="10" cols="10" onChange={onChange} />
             </div>
-        </form>
+            <div className="modal-footer">
+                <a href="#!" onClick={onSubmit} className="modal-close waves-effect waves-light btn blue">Add Recipe</a>
+            </div>
+        </div>
     )
 }
 

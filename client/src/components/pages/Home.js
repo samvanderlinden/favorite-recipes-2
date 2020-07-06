@@ -3,6 +3,7 @@ import Recipes from '../recipes/Recipes';
 import RecipeForm from '../recipes/RecipeForm';
 // import ContactFilter from '../contacts/ContactFilter';
 import AuthContext from '../../context/auth/authContext';
+import AddRecipeButton from '../layout/AddRecipeButton';
 
 const Home = () => {
     const authContext = useContext(AuthContext);
@@ -15,6 +16,7 @@ const Home = () => {
         <div className="grid-2">
             <div>
                 <RecipeForm />
+                <AddRecipeButton />
             </div>
             <div>
                 {/* <ContactFilter /> */}
