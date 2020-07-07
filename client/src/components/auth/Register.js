@@ -5,7 +5,7 @@ import AuthContext from '../../context/auth/authContext';
 const Register = (props) => {
     const alertContext = useContext(AlertContext);
     const authContext = useContext(AuthContext);
-    const [ user, setUser ] = useState({
+    const [user, setUser] = useState({
         name: '',
         email: '',
         password: '',
@@ -19,10 +19,10 @@ const Register = (props) => {
     const { register, error, clearErrors, isAuthenticated } = authContext;
 
     useEffect(() => {
-        if(isAuthenticated) {
+        if (isAuthenticated) {
             props.history.push('/')// redirect to the home page
         }
-        if(error === 'User already exists'){
+        if (error === 'User already exists') {
             setAlert(error, 'danger');
             clearErrors();
         }
@@ -31,19 +31,19 @@ const Register = (props) => {
     }, [error, isAuthenticated, props.history]);
 
     const onChange = e => {
-        setUser({...user, [e.target.name]: e.target.value}); //using spread syntax to keep state of user for each onChange invocation
+        setUser({ ...user, [e.target.name]: e.target.value }); //using spread syntax to keep state of user for each onChange invocation
     }
 
     const onSubmit = e => {
         e.preventDefault();
-        if( name === "" || password === "" || email === "" ) {
+        if (name === "" || password === "" || email === "") {
             setAlert('Please enter all fields', 'danger')
-        } else if( password !== password2 ) {
+        } else if (password !== password2) {
             setAlert('Passwords do not match', 'danger')
         } else {
             register({ name, email, password });
         }
-        
+
     }
 
     return (
@@ -51,25 +51,33 @@ const Register = (props) => {
             <h2>
                 Register
             </h2>
-            <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="name" value={name} onChange={onChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="email" name="email" value={email} onChange={onChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" value={password} onChange={onChange} minLength="6"/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password2">Confirm Password</label>
-                    <input type="password" name="password2" value={password2} onChange={onChange} minLength="6"/>
-                </div>
-                <input type="submit" value="Register" className="btn btn-primary btn-block"/>
-            </form>
+            <div className="row">
+                <form onSubmit={onSubmit} className="col s12">
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix">person</i>
+                            <label htmlFor="name">Name</label>
+                            <input id="name" type="text" name="name" value={name} onChange={onChange} />
+                        </div>
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix">email</i>
+                            <label htmlFor="email">Email Address</label>
+                            <input id="email" type="email" name="email" value={email} onChange={onChange} />
+                        </div>
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix">lock</i>
+                            <label htmlFor="password">Password</label>
+                            <input id="password" type="password" name="password" value={password} onChange={onChange} minLength="6" />
+                        </div>
+                        <div className="input-field col s12">
+                            <i className="material-icons prefix">check</i>
+                            <label htmlFor="password2">Confirm Password</label>
+                            <input id="password2" type="password" name="password2" value={password2} onChange={onChange} minLength="6" />
+                        </div>
+                        <input type="submit" value="Register" className="btn btn-primary btn-block" />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
