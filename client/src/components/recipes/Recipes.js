@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import RecipesContext from '../../context/recipes/recipesContext';
+import RecipeItem from './RecipeItem';
 // import ContactItem from './ContactItem';
 import Spinner from '../layout/Spinner';
 // import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -22,7 +23,10 @@ const Recipes = () => {
         <Fragment>
             {recipes !== null && !loading ? (
                 recipes.map(recipe => (
-                    <li key={recipe._id}>{recipe.name} -- {recipe.details} </li>
+                    // <li key={recipe._id}>{recipe.name} -- {recipe.details} </li>
+                    <RecipeItem
+                        recipe={recipe}
+                        key={recipe._id} />
                 ))
             ) : <Spinner />}
         </Fragment>

@@ -55,7 +55,7 @@ const Login = (props) => {
                 <form onSubmit={onSubmit} className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
-                            <i className="material-icons prefix">person</i>
+                            <i className="material-icons prefix">email</i>
                             <input id="email" type="email" name="email" value={email} onChange={onChange} />
                             <label htmlFor="email">Email Address</label>
                         </div>
