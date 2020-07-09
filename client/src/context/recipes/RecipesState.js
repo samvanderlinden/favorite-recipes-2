@@ -70,21 +70,21 @@ const RecipesState = props => {
         }
     }
 
-    // //Delete recipe
-    // const deleteRecipe = async id => {
-    //     try {
-    //         await axios.delete(`/api/recipes/${id}`);
-    //         dispatch({
-    //             type: DELETE_RECIPE,
-    //             payload: id
-    //         });
-    //     } catch (error) {
-    //         dispatch({
-    //             type: RECIPE_ERROR,
-    //             payload: error.response.message
-    //         })
-    //     }
-    // }
+    //Delete recipe
+    const deleteRecipe = async id => {
+        try {
+            await axios.delete(`/api/recipes/${id}`);
+            dispatch({
+                type: DELETE_RECIPE,
+                payload: id
+            });
+        } catch (error) {
+            dispatch({
+                type: RECIPE_ERROR,
+                payload: error.response.message
+            })
+        }
+    }
 
     //Update recipe
     // const updateRecipe = async recipe => {
@@ -135,7 +135,7 @@ const RecipesState = props => {
                 current: state.current,
                 error: state.error,
                 addRecipe: addRecipe,
-                // deleteRecipe: deleteRecipe,
+                deleteRecipe: deleteRecipe,
                 clearCurrent: clearCurrent,
                 setCurrent: setCurrent,
                 // updateRecipe: updateRecipe,

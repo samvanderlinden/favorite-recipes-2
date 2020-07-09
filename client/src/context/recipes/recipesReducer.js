@@ -25,6 +25,14 @@ export default (state, action) => {
                 recipes: [action.payload, ...state.recipes],
                 loading: false
             };
+        case DELETE_RECIPE:
+            return {
+                ...state,
+                recipes: state.recipes.filter(recipe => {
+                    return recipe._id !== action.payload
+                }),
+                loading: false
+            }
         case SET_CURRENT:
             return {
                 ...state,
