@@ -87,26 +87,26 @@ const RecipesState = props => {
     }
 
     //Update recipe
-    // const updateRecipe = async recipe => {
-    //     const config = {
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }
-
-    //     try {
-    //         const res = await axios.put(`/api/recipes/${recipe._id}`, recipe, config);
-    //         dispatch({ 
-    //             type: UPDATE_RECIPE, 
-    //             payload: res.data
-    //         });
-    //     } catch (error) {
-    //         dispatch({
-    //             type: RECIPE_ERROR,
-    //             payload: error.response.message
-    //         })
-    //     }
-    // }
+    const updateRecipe = async recipe => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        console.log('recipe',recipe);
+        try {
+            const res = await axios.put(`/api/recipes/${recipe._id}`, recipe, config);
+            dispatch({ 
+                type: UPDATE_RECIPE, 
+                payload: res.data
+            });
+        } catch (error) {
+            dispatch({
+                type: RECIPE_ERROR,
+                payload: error.response.message
+            })
+        }
+    }
 
     //Set current contact
     const setCurrent = (recipe) => {
@@ -138,7 +138,7 @@ const RecipesState = props => {
                 deleteRecipe: deleteRecipe,
                 clearCurrent: clearCurrent,
                 setCurrent: setCurrent,
-                // updateRecipe: updateRecipe,
+                updateRecipe: updateRecipe,
                 // filtered: state.filtered,
                 // clearFilter: clearFilter,
                 // filterRecipes: filterRecipes,

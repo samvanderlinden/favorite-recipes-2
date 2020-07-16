@@ -33,6 +33,14 @@ export default (state, action) => {
                 }),
                 loading: false
             }
+        case UPDATE_RECIPE:
+            return {
+                ...state,
+                recipes: state.recipes.map(recipe => {
+                    return recipe._id === action.payload._id ? action.payload : recipe
+                }),
+                loading: false
+            }
         case SET_CURRENT:
             return {
                 ...state,
