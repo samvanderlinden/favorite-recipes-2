@@ -1,5 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
-import RecipesContext from '../../context/recipes/recipesContext'
+import React, { useState, useContext } from 'react';
+import RecipesContext from '../../context/recipes/recipesContext';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 const RecipeForm = () => {
     const recipesContext = useContext(RecipesContext);
@@ -26,6 +27,9 @@ const RecipeForm = () => {
             name: '',
             details: ''
         });
+
+        M.toast({html: 'Recipe Added'});
+
     }
 
     return (

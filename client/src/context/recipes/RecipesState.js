@@ -93,7 +93,7 @@ const RecipesState = props => {
                 'Content-Type': 'application/json'
             }
         }
-        console.log('recipe',recipe);
+        
         try {
             const res = await axios.put(`/api/recipes/${recipe._id}`, recipe, config);
             dispatch({ 

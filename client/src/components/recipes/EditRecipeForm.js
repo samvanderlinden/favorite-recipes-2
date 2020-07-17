@@ -4,7 +4,7 @@ import RecipesContext from '../../context/recipes/recipesContext'
 const EditRecipeForm = ({recipeItem}) => {
     const recipesContext = useContext(RecipesContext);
 
-    const { updateRecipe, setCurrent } = recipesContext;
+    const { updateRecipe } = recipesContext;
 
     const [recipe, setRecipe] = useState({
         _id: recipeItem._id,
@@ -23,10 +23,6 @@ const EditRecipeForm = ({recipeItem}) => {
 
         updateRecipe(recipe);
 
-        // setRecipe({
-        //     name: '',
-        //     details: ''
-        // });
     }
 
     return (
