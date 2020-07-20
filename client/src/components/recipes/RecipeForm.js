@@ -39,7 +39,7 @@ const RecipeForm = () => {
                     <textarea placeholder="Recipe Details" className="materialize-textarea" name="details" value={details} onChange={onChange}/>
             </div>
             <div className="modal-footer">
-                <a href="#!" onClick={onSubmit} className="modal-close waves-effect waves-light btn blue">Add Recipe</a>
+                <a href="#!" onClick={onSubmit} className="modal-close waves-effect btn blue">Add Recipe</a>
             </div>
         </div>
     )

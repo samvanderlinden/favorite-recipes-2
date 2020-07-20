@@ -47,7 +47,7 @@ const Login = (props) => {
     }
 
     return (
-        <div className="form-container">
+        <div className="form-container" style={{color:"#4db6ac"}}>
             <h2>
                 Login
             </h2>

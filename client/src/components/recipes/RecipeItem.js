@@ -12,7 +12,7 @@ const RecipeItem = ({ recipe }) => {
 
     const recipesContext = useContext(RecipesContext);
 
-    const { deleteRecipe, setCurrent } = recipesContext;
+    const { deleteRecipe } = recipesContext;
 
     const { _id, name, details } = recipe;
 
@@ -20,23 +20,18 @@ const RecipeItem = ({ recipe }) => {
         deleteRecipe(_id);
     }
 
-    const onEdit = () => {
-        setCurrent(recipe);
-        console.log(`recipe ${recipe.name} update clicked`);
-    }
-
     return (
         <Fragment>
             <div className="row">
                 <div className="col s12 m6">
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
+                    <div className="card grey lighten-5">
+                        <div className="card-content black-text">
                             <span className="card-title">{name}</span>
                             <p>{details}</p>
                         </div>
                         <div className="card-action card-btn-container">
-                            <a className="btn-floating waves-effect waves-light red" onClick={onDelete}><i className="material-icons">delete</i></a>
-                            <a className="btn-floating waves-effect waves-light amber lighten-1 modal-trigger" href="#update-recipe-modal"><i className="material-icons">create</i></a>
+                            <a className="btn-floating waves-effect red" onClick={onDelete}><i className="material-icons">delete</i></a>
+                            <a className="btn-floating waves-effect #558b2f light-green darken-3 modal-trigger" href="#update-recipe-modal"><i className="material-icons">create</i></a>
                         </div>
                     </div>
                 </div>

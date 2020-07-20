@@ -47,7 +47,7 @@ const Register = (props) => {
     }
 
     return (
-        <div className="form-container">
+        <div className="form-container" style={{ color: "white" }}>
             <h2>
                 Register
             </h2>
