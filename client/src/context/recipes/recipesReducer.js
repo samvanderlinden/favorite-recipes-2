@@ -46,6 +46,11 @@ export default (state, action) => {
                 ...state,
                 current: action.payload
             };
+        case CLEAR_CURRENT:
+            return {
+                ...state,
+                current: null
+            }
         case RECIPE_ERROR:
             return {
                 ...state,

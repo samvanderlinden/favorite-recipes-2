@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import EditRecipeForm from './components/recipes/EditRecipeForm';
 import M from 'materialize-css';
 import Navbar from './components/layout/Navbar';
 import Alerts from './components/layout/Alerts';
@@ -30,6 +31,7 @@ const App = () => {
               <Navbar />
               <div className="container">
                 <Alerts />
+                <EditRecipeForm />
                 <Switch>
                   <PrivateRoute exact path='/' component={Home} />
                   <Route path='/register' component={Register} />
