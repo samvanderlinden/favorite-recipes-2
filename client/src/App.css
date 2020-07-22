@@ -2,3 +2,11 @@
   display: flex;
   justify-content: space-around;
 }
+
+html {
+  height: 100%;
+  background: url(https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}

@@ -1,5 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react';
-import RecipesContext from '../../context/recipes/recipesContext'
+import React, { useState, useContext } from 'react';
+import RecipesContext from '../../context/recipes/recipesContext';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 const RecipeForm = () => {
     const recipesContext = useContext(RecipesContext);
@@ -26,6 +27,9 @@ const RecipeForm = () => {
             name: '',
             details: ''
         });
+
+        M.toast({html: 'Recipe Added'});
+
     }
 
     return (
@@ -35,7 +39,7 @@ const RecipeForm = () => {
                     <textarea placeholder="Recipe Details" className="materialize-textarea" name="details" value={details} onChange={onChange}/>
             </div>
             <div className="modal-footer">
-                <a href="#!" onClick={onSubmit} className="modal-close waves-effect waves-light btn blue">Add Recipe</a>
+                <a href="#!" onClick={onSubmit} className="modal-close waves-effect btn blue">Add Recipe</a>
             </div>
         </div>
     )

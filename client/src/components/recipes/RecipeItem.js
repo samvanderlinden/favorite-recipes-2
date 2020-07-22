@@ -5,7 +5,7 @@ import '../../App.css';
 const RecipeItem = ({ recipe }) => {
     const recipesContext = useContext(RecipesContext);
 
-    const { deleteRecipe, setCurrent } = recipesContext;
+    const { deleteRecipe } = recipesContext;
 
     const { _id, name, details } = recipe;
 
@@ -17,8 +17,8 @@ const RecipeItem = ({ recipe }) => {
         <Fragment>
             <div className="row">
                 <div className="col s12 m6">
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
+                    <div className="card grey lighten-5">
+                        <div className="card-content black-text">
                             <span className="card-title">{name}</span>
                             <p>{details}</p>
                         </div>
