@@ -1,15 +1,8 @@
 import React, { useContext, useEffect, Fragment } from 'react';
 import RecipesContext from '../../context/recipes/recipesContext';
-import EditRecipeForm from './EditRecipeForm';
-import M from 'materialize-css/dist/js/materialize.min.js';
 import '../../App.css';
 
 const RecipeItem = ({ recipe }) => {
-    useEffect(() => {
-        let updateRecipeModal = document.querySelector('#update-recipe-modal');
-        M.Modal.init(updateRecipeModal, {});
-    });
-
     const recipesContext = useContext(RecipesContext);
 
     const { deleteRecipe, setCurrent } = recipesContext;
@@ -18,11 +11,6 @@ const RecipeItem = ({ recipe }) => {
 
     const onDelete = () => {
         deleteRecipe(_id);
-    }
-
-    const onEdit = () => {
-        setCurrent(recipe);
-        console.log(`recipe ${recipe.name} update clicked`);
     }
 
     return (
@@ -35,14 +23,12 @@ const RecipeItem = ({ recipe }) => {
                             <p>{details}</p>
                         </div>
                         <div className="card-action card-btn-container">
-                            <a className="btn-floating waves-effect waves-light red" onClick={onDelete}><i className="material-icons">delete</i></a>
-                            <a className="btn-floating waves-effect waves-light amber lighten-1 modal-trigger" href="#update-recipe-modal"><i className="material-icons">create</i></a>
+                            <a className="btn-floating waves-effect red" onClick={onDelete}><i className="material-icons">delete</i></a>
+                            <a href="#update-recipe-modal" className="btn-floating waves-effect amber lighten-1 modal-trigger" onClick={() => setCurrent(recipe)}><i className="material-icons">create</i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <EditRecipeForm 
-            recipeItem={recipe}/>
         </Fragment>
     )
 }

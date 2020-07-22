@@ -1,18 +1,21 @@
-import React, { useState, useContext } from 'react';
-import RecipesContext from '../../context/recipes/recipesContext'
+import React, { useState, useContext, useEffect } from 'react';
+import RecipesContext from '../../context/recipes/recipesContext';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
-const EditRecipeForm = ({recipeItem}) => {
+const EditRecipeForm = () => {
+    const [recipe, setRecipe] = useState({ name: '', details: '' });
+
     const recipesContext = useContext(RecipesContext);
 
-    const { updateRecipe, setCurrent } = recipesContext;
+    const { updateRecipe, current } = recipesContext;
 
-    const [recipe, setRecipe] = useState({
-        _id: recipeItem._id,
-        name: recipeItem.name,
-        details: recipeItem.details
-    });
+    console.log('current',current);
 
-    const { name, details } = recipe;
+    useEffect(() => {
+        if (current) {
+            setRecipe({name: current.name, details: current.details});
+        }
+    }, [current]);
 
     const onChange = e => {
         setRecipe({ ...recipe, [e.target.name]: e.target.value });
@@ -21,19 +24,25 @@ const EditRecipeForm = ({recipeItem}) => {
     const onSubmit = e => {
         e.preventDefault();
 
-        updateRecipe(recipe);
+        if (recipe.name === '' || recipe.details === '') {
+            M.toast({html: 'Please fill in a recipe name and details'});
+        } else {
+            const newRecipe = {
+                _id:current._id,
+                name: recipe.name,
+                details: recipe.details
+            }
 
-        // setRecipe({
-        //     name: '',
-        //     details: ''
-        // });
+            updateRecipe(newRecipe);
+        }
+
     }
 
     return (
         <div id="update-recipe-modal" className="modal">
             <div className="modal-content input-field">
-                    <input type="text" placeholder="Recipe Name" name="name" value={name} onChange={onChange} />
-                    <textarea placeholder="Recipe Details" className="materialize-textarea" name="details" value={details} onChange={onChange}/>
+                    <input type="text" placeholder="Recipe Name" name="name" value={recipe.name} onChange={onChange} />
+                    <textarea placeholder="Recipe Details" className="materialize-textarea" name="details" value={recipe.details} onChange={onChange}/>
             </div>
             <div className="modal-footer">
                 <a href="#!" onClick={onSubmit} className="modal-close waves-effect waves-light btn blue">Edit Recipe</a>
