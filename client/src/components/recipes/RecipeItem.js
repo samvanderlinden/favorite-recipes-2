@@ -5,7 +5,7 @@ import '../../App.css';
 const RecipeItem = ({ recipe }) => {
     const recipesContext = useContext(RecipesContext);
 
-    const { deleteRecipe } = recipesContext;
+    const { deleteRecipe, setCurrent } = recipesContext;
 
     const { _id, name, details } = recipe;
 
