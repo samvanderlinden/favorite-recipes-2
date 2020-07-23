@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
+import "../../App.css";
 
 const Login = (props) => {
     const alertContext = useContext(AlertContext);
@@ -47,10 +48,10 @@ const Login = (props) => {
     }
 
     return (
-        <div className="form-container" style={{color:"#4db6ac"}}>
-            <h2>
+        <div className="form-container">
+            <h3 className="login-heading">
                 Login
-            </h2>
+            </h3>
             <div className="row">
                 <form onSubmit={onSubmit} className="col s12">
                     <div className="row">

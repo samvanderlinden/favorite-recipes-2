@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
+import '../../App.css';
 
 const Register = (props) => {
     const alertContext = useContext(AlertContext);
@@ -47,10 +48,10 @@ const Register = (props) => {
     }
 
     return (
-        <div className="form-container" style={{ color: "white" }}>
-            <h2>
+        <div className="form-container">
+            <h3 className="register-heading">
                 Register
-            </h2>
+            </h3>
             <div className="row">
                 <form onSubmit={onSubmit} className="col s12">
                     <div className="row">

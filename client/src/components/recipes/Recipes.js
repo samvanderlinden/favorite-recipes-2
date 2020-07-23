@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import RecipesContext from '../../context/recipes/recipesContext';
 import RecipeItem from './RecipeItem';
 import Spinner from '../layout/Spinner';
+import '../../App.css';
 
 const Recipes = () => {
     const recipesContext = useContext(RecipesContext);
@@ -14,7 +15,7 @@ const Recipes = () => {
     }, []);
 
     if (recipes !== null && recipes.length === 0 && !loading) {
-        return <h4>Please add a recipe</h4>
+        return <h4 className="please-add-recipe">Please add a recipe</h4>
     }
 
     return (

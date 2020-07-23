@@ -3,6 +3,22 @@
   justify-content: space-around;
 }
 
+.login-heading,
+.register-heading {
+  text-align: center;
+}
+
+.form-container {
+  background-color: rgb(231, 227, 227);
+  opacity: 85%;
+}
+
+.please-add-recipe {
+  margin: auto;
+  width: 80%;
+  padding-top: 30px;
+}
+
 html {
   height: 100%;
   background: url(https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
