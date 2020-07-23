@@ -8,6 +8,7 @@ const Navbar = () => {
     });
     return (
         <>
+        <div className="navbar-fixed">
             <nav>
                 <div className="nav-wrapper cyan darken-3">
                     <a href="#!" className="brand-logo">Recipe Logger</a>
@@ -18,6 +19,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             </nav>
+            </div>
 
             <ul className="sidenav" id="slide-out">
                 <li><a href="#!">Register</a></li>
