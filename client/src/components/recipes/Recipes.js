@@ -2,12 +2,13 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import RecipesContext from '../../context/recipes/recipesContext';
 import RecipeItem from './RecipeItem';
 import Spinner from '../layout/Spinner';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import '../../App.css';
 
 const Recipes = () => {
     const recipesContext = useContext(RecipesContext);
 
-    const { recipes, getRecipes, loading } = recipesContext;
+    const { recipes, getRecipes, loading, filtered } = recipesContext;
 
     useEffect(() => {
         getRecipes();
@@ -20,14 +21,31 @@ const Recipes = () => {
 
     return (
         <Fragment>
-            {recipes !== null && !loading ? (
-                recipes.map(recipe => (
-                    <RecipeItem
-                        recipe={recipe}
-                        key={recipe._id} />
-                ))
-            ) : <Spinner />}
+            { recipes !== null && !loading ? (<TransitionGroup>
+                {filtered !== null ? filtered.map(recipe => (
+                    <CSSTransition key={recipe._id} timeout={500} classNames="item">
+                        <RecipeItem recipe={recipe} />
+                    </CSSTransition>
+                )) : 
+                    (recipes.map(recipe => (
+                    <CSSTransition key={recipe._id} timeout={500} classNames="item">
+                        <RecipeItem recipe={recipe} />
+                    </CSSTransition>
+                )))}    
+            </TransitionGroup>) : <Spinner /> }
         </Fragment>
+                    // {contacts !== null && !loading ? (<TransitionGroup>
+                    //     {filtered !== null ? filtered.map(contact => (
+                    //         <CSSTransition key={contact._id} timeout={500} classNames="item">
+                    //             <ContactItem contact={contact} />
+                    //         </CSSTransition>
+                    //     )) :
+                    //         (contacts.map(contact => (
+                    //             <CSSTransition key={contact._id} timeout={500} classNames="item">
+                    //                 <ContactItem contact={contact} />
+                    //             </CSSTransition>
+                    //         )))}
+                    // </TransitionGroup>) : <Spinner />}
     )
 }
 

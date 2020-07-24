@@ -41,6 +41,15 @@ export default (state, action) => {
                 }),
                 loading: false
             }
+        case FILTER_RECIPES:
+            return {
+                ...state,
+                filtered: state.recipes.filter(recipe => {
+                    const regex = new RegExp(`${action.payload}`, 'gi');
+                    return recipe.name.match(regex);
+                }),
+                loading: false
+            }
         case SET_CURRENT:
             return {
                 ...state,
@@ -51,6 +60,12 @@ export default (state, action) => {
                 ...state,
                 current: null
             }
+        case CLEAR_FILTER: {
+            return {
+                ...state,
+                filtered: null
+            }
+        }
         case RECIPE_ERROR:
             return {
                 ...state,
