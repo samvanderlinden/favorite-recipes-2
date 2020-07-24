@@ -118,15 +118,15 @@ const RecipesState = props => {
         dispatch({ type: CLEAR_CURRENT })
     }
 
-    // //Filter recipes
-    // const filterRecipes = (text) => {
-    //     dispatch({ type: FILTER_RECIPES, payload: text })
-    // }
+    //Filter recipes
+    const filterRecipes = (text) => {
+        dispatch({ type: FILTER_RECIPES, payload: text })
+    }
 
-    // //Clear filter
-    // const clearFilter = () => {
-    //     dispatch({ type: CLEAR_FILTER })
-    // }
+    //Clear filter
+    const clearFilter = () => {
+        dispatch({ type: CLEAR_FILTER })
+    }
 
     return (
         <RecipesContext.Provider
@@ -139,9 +139,9 @@ const RecipesState = props => {
                 clearCurrent: clearCurrent,
                 setCurrent: setCurrent,
                 updateRecipe: updateRecipe,
-                // filtered: state.filtered,
-                // clearFilter: clearFilter,
-                // filterRecipes: filterRecipes,
+                filtered: state.filtered,
+                clearFilter: clearFilter,
+                filterRecipes: filterRecipes,
                 getRecipes: getRecipes
                 // clearRecipes: clearRecipes
             }}>
