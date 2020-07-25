@@ -2,11 +2,15 @@ import React, { useContext, useEffect } from 'react'
 import Recipes from '../recipes/Recipes';
 import RecipeForm from '../recipes/RecipeForm';
 import AuthContext from '../../context/auth/authContext';
+import RecipesContext from '../../context/recipes/recipesContext';
 import AddRecipeButton from '../layout/AddRecipeButton';
 import SearchRecipes from '../recipes/SearchRecipes';
 
 const Home = () => {
     const authContext = useContext(AuthContext);
+    const recipeContext = useContext(RecipesContext);
+
+    const { recipes } = recipeContext;
 
     useEffect(() => {
         authContext.loadUser();
@@ -19,7 +23,7 @@ const Home = () => {
                 <AddRecipeButton />
             </div>
             <div>
-                <SearchRecipes />
+                { recipes.length > 0 && <SearchRecipes /> }
                 <Recipes />
             </div>
         </div>
