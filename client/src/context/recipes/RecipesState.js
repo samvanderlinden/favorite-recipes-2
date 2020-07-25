@@ -108,7 +108,7 @@ const RecipesState = props => {
         }
     }
 
-    //Set current contact
+    //Set current recipe
     const setCurrent = (recipe) => {
         dispatch({ type: SET_CURRENT, payload: recipe })
     }
