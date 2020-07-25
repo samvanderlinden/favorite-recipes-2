@@ -34,18 +34,6 @@ const Recipes = () => {
                 )))}    
             </TransitionGroup>) : <Spinner /> }
         </Fragment>
-                    // {contacts !== null && !loading ? (<TransitionGroup>
-                    //     {filtered !== null ? filtered.map(contact => (
-                    //         <CSSTransition key={contact._id} timeout={500} classNames="item">
-                    //             <ContactItem contact={contact} />
-                    //         </CSSTransition>
-                    //     )) :
-                    //         (contacts.map(contact => (
-                    //             <CSSTransition key={contact._id} timeout={500} classNames="item">
-                    //                 <ContactItem contact={contact} />
-                    //             </CSSTransition>
-                    //         )))}
-                    // </TransitionGroup>) : <Spinner />}
     )
 }
 
